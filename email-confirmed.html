@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email confirmed · CTMO San Pablo</title>
+<style>
+  :root {
+    --navy: #1a237e;
+    --ink: #1c1d26;
+    --muted: #5d6070;
+    --bg: #eef0f8;
+    --card: #ffffff;
+    --ok: #1b7f4b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --navy: #aab4ff;
+      --ink: #eceefa;
+      --muted: #a4a8bd;
+      --bg: #12142b;
+      --card: #1c1f3d;
+      --ok: #5bd19a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  main {
+    width: 100%;
+    max-width: 420px;
+    padding: 36px 32px;
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(20, 24, 70, 0.14);
+  }
+  .mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--ok);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .mark svg { width: 26px; height: 26px; stroke: var(--ok); }
+  h1 {
+    margin: 0 0 8px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  p { margin: 0 0 12px; font-size: 15px; color: var(--muted); max-width: 60ch; }
+  .office { margin: 24px 0 0; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12.5l4.5 4.5L19 7.5"/>
+    </svg>
+  </div>
+  <h1>Email confirmed</h1>
+  <p>Your email address has been verified. You can close this tab.</p>
+  <p>Your admin account still needs approval from an existing CTMO admin before you can log in.</p>
+  <p class="office">City Traffic Management Office · San Pablo City</p>
+</main>
+<script>
+  // Supabase appends auth tokens to the URL after the "#". This page
+  // doesn't need them, so remove them from the address bar.
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+</script>
+</body>
+</html>
